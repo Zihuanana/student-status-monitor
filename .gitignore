@@ -1,0 +1,98 @@
+# ── Python ────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ── 数据与日志（含学生个人信息，绝不入库） ──────────────────
+data/
+*.db
+*.db-wal
+*.db-shm
+logs/
+.shots/
+.shots-live/
+
+# ── 名册 / 课表：**涉密**，绝不入库 ──────────────────────────
+# 老师发来的学生选课名单属于个人信息（可能涉密）。它一旦落在工作区，
+# 后续任何一次 `git add -A` 都会把它带进版本库 —— 而版本库是要推走的。
+# 所以这里按扩展名兜死；同时约定：名册一律放 imports/ 目录。
+imports/
+*.xlsx
+*.xls
+*.xlsm
+*.csv
+*.tsv
+!web/**/*.csv
+
+# ── 参考素材：从站点抓取的第三方文件，仅本地留档 ────────────
+reference/
+
+# ── 配置：含接口密钥与访问口令 ──────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── 前端 ──────────────────────────────────────────────────
+node_modules/
+web/dist/
+web/.vite/
+npm-debug.log*
+
+# ── 编辑器 / 系统 ─────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# ── 临时压测/调试产物 ─────────────────────────────────────
+.tmp/
+_tmp*/
+# 会话内的临时脚本/探针（.tmp_xxx.py / .tmp_xxx.sh 之类）
+.tmp_*
+# 测试临时目录（沙箱下 Python 的 tempfile 只能落在这里）
+.tmp-tests/
+# 无头浏览器截图与探测脚本的输出（含真实学生姓名，绝不入库）
+.shots*/
+.shots_*.txt
+.env.bak*
+.tmp-commit-msg.txt
+commit-msg.txt
+_commit.txt
+commitmsg.txt
+
+# 环境/数据库残留备份（含真实口令与学生数据，绝不入库）
+.env.broken*
+*.bak-*
+data/*.db.bak*
+
+# 发布包与迁移包（体积大；迁移包含真实学生数据）
+student-monitor-*.tar.gz
+student-monitor-*.zip
+sm-data*.tar.gz
+
+# 远控脚本自动生成的 ssh 配置
+deploy/ssh-config-intranet.generated
+# 提交信息临时文件（反复误提交过多次，这里一次性堵住）
+cmsg.txt
+note.txt
+*msg*.txt
+*commit*.txt
+
+# 远控脚本自动生成的 ssh 配置
+deploy/ssh-config-intranet.generated
+# 截图与临时渲染产物
+web/*.png
+*.docx
+!内网访问放行申请.docx
+
+# 本地开发库（假数据，放在仓库外）
+var/
+# 单字母的临时提交信息文件（反复误提交）
+c.txt
+m.txt
+n.txt
+r.txt
+cm.txt

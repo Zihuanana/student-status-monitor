@@ -1,0 +1,14 @@
+# 依赖（Python 3.11+）
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.32,<1.0
+sqlalchemy>=2.0,<3.0
+pydantic>=2.9,<3.0
+pydantic-settings>=2.6,<3.0
+httpx>=0.27,<1.0
+python-multipart>=0.0.12
+itsdangerous>=2.2,<3.0
+jinja2>=3.1,<4.0
+python-dateutil>=2.9
+# 读教务处导出的旧版 .xls（BIFF 二进制格式）。.xlsx 用标准库自己解析，不需要它。
+# 没有它时 `app.cli teach-schedule *.xls` 会明确报错而不是静默读空。
+xlrd>=2.0,<3.0
